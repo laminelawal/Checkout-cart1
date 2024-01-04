@@ -1,11 +1,10 @@
 import React from 'react'
 import {MdRemoveShoppingCart} from "react-icons/md";
-import products from '../products';
 import { CartItem } from './CartItem';
-
-
+import { useGlobalContext } from '../context/context';
 
 export const Cart = () => {
+  const {products, deletAll} = useGlobalContext()
   return (
     <div className='header-content'>
     <div className='header'>
@@ -19,7 +18,9 @@ export const Cart = () => {
                 color: "darkred",
                 fontSize:"25px",
                 cursor:"pointer"
-            }}>
+            }}
+            onClick={()=> deletAll()}
+            >
           <MdRemoveShoppingCart className="icon minus-icon" />
         </button>
       </div>
