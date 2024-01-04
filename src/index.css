@@ -249,3 +249,29 @@ body{
           }
     }
 }
+
+
+/* Cart box stles */
+.cartBox{
+  margin-top: 10px;
+  margin-right: 80px;
+  margin-bottom: 20px;
+  color:lightblue !important;
+  float: right;
+  background-color: #333;
+  box-shadow: 2px 3px 5px black;
+  padding:  20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  button{
+    padding: 8px 10px;
+    background-color: black;
+    font-weight: bold;
+    color: lightblue;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}

@@ -3,13 +3,15 @@ import Navbar from './components/Navbar';
 import products from './products';
 import { Cart } from './components/Cart';
 import Loading from './components/Loading';
+import { useGlobalContext } from './context/context';
+import formatNumber from './utils/formatNumber';
 
 
-const  text = "Total products 10";
-document.title = text; 
+
+
 export const App = () => {
+  const {total, itemCounter} = useGlobalContext();
   const [isLoading,setIsLoading] = useState(false);
-
   function OnloadWindow(){
     return window.onload =()=>{
       return setIsLoading(true)
@@ -23,6 +25,19 @@ export const App = () => {
       return ()=> clearTimeout();
     }, 500);
   }, [isLoading]);
+
+
+  
+    useEffect(() => {
+      // Update document title whenever itemCounter changes
+      if (itemCounter <= 0) {
+        document.title = 'You got nothing in your Cart';
+      } else if (itemCounter === 1) {
+        document.title = `You got ${itemCounter} item in your Cart`;
+      } else {
+        document.title = `You got ${itemCounter} items in your Cart`;
+      }
+    }, [itemCounter]);
 
 
   return (
@@ -42,9 +57,19 @@ export const App = () => {
             </div>
           )}
           {/* {total > 0 && <TotalBox />} */}
-          <h1 style={{ color: "lightblue" }}>0</h1>
+          {total > 0 && 
+          <h1 className='cartBox'>
+          <small>Carrello</small>
+         {formatNumber(total)}
+          <button>Checkout</button>
+          </h1>
+         }
+          
         </>
       )}
     </div>
   );
 }
+
+
+

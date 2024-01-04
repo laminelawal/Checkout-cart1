@@ -4,9 +4,25 @@ import {MdDelete} from "react-icons/md"
 import { useGlobalContext } from '../context/context'
 
 
-export const CartItem = ({name,_id,price,countInStock,image}) => {
+export const CartItem = ({name,_id,price,countInStock,image, qty}) => {
   const {deleteItem,addQty,dimQty} = useGlobalContext();
 
+
+  const aggiungiQty = (id) => {
+    if (qty + 1 > countInStock) {
+      return;
+    }
+    return addQty(id);
+  };
+
+
+  function diminuisciQty(id){
+    if(qty - 1 <= 0){
+     return deleteItem(id)
+    }else{
+     return dimQty(id);
+    }
+  }
   return (
     <div className='cart-section'>
         <div className='cart-item'>
@@ -15,11 +31,11 @@ export const CartItem = ({name,_id,price,countInStock,image}) => {
     </div>
     <small className='prd-name'>{name}</small>
     <div className='quantity-controller'>
-    <button className="btn icon-btn">
+    <button className="btn icon-btn" onClick={()=> aggiungiQty(_id)}>
           <BiPlus className="icon add-icon" style={{color:"lightblue", fontSize: "1.8rem"}}/>
         </button>
-        <p> {countInStock} </p>
-        <button className="btn icon-btn " >
+        <p> {qty} </p>
+        <button className="btn icon-btn " onClick={()=> diminuisciQty(_id)}>
           <BiMinus
             className="icon minus-icon"
             style={{color:"darkred", fontSize: "1.8rem",cursor:"pointer"}}

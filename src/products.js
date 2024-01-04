@@ -6,6 +6,7 @@ const products = [
         "https://res.cloudinary.com/thomasdea/image/upload/v1613472793/react-api-course/cartShop/airpods_iev6qf.jpg",
       price: 89.99,
       countInStock: 10,
+      qty: 1
     },
     {
       _id: "2",
@@ -14,6 +15,7 @@ const products = [
         "https://res.cloudinary.com/thomasdea/image/upload/v1613472793/react-api-course/cartShop/phone_jjra8o.jpg",
       price: 599.99,
       countInStock: 7,
+      qty: 1
     },
     {
       _id: "3",
@@ -22,6 +24,7 @@ const products = [
         "https://res.cloudinary.com/thomasdea/image/upload/v1613472793/react-api-course/cartShop/camera_hnj3fq.jpg",
       price: 929.99,
       countInStock: 5,
+      qty: 1
     },
     {
       _id: "4",
@@ -30,6 +33,7 @@ const products = [
         "https://res.cloudinary.com/thomasdea/image/upload/v1613472793/react-api-course/cartShop/playstation_n7txan.jpg",
       price: 399.99,
       countInStock: 11,
+      qty: 1
     },
     {
       _id: "5",
@@ -38,6 +42,7 @@ const products = [
         "https://res.cloudinary.com/thomasdea/image/upload/v1613472794/react-api-course/cartShop/mouse_xil0pz.jpg",
       price: 49.99,
       countInStock: 7,
+      qty: 1
     },
     {
       _id: "6",
@@ -46,6 +51,7 @@ const products = [
         "https://res.cloudinary.com/thomasdea/image/upload/v1613472793/react-api-course/cartShop/alexa_blrhqd.jpg",
       price: 29.99,
       countInStock: 0,
+      qty: 1
     },
   ];
   

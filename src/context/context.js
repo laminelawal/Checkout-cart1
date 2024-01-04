@@ -1,12 +1,13 @@
-import React, { createContext, useContext, useReducer } from "react"
+import React, { createContext, useContext, useReducer, useEffect } from "react"
 import products from "../products"
 import reducer from "./reducer";
 const AppContext = createContext();
 
 const initialState = {
     products: products,
+    total:0,
+    itemCounter:0,
 }
-
 
 
 function AppProvider({children}){
@@ -33,6 +34,10 @@ function AppProvider({children}){
   const dimQty = (id) => {
     return dispatch({ type: "DIMINUISCI_QTY", payload: id });
   };
+  useEffect(() => {
+    dispatch({ type: "COSTO_TOTALE" });
+    dispatch({ type: "CONTATORE" });
+  }, [state.products]);
     return(
         <AppContext.Provider
         value={{

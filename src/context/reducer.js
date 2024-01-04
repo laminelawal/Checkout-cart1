@@ -1,4 +1,6 @@
 const reducer = (state, action)=>{
+
+  
     if(action.type === "Delet_item"){
         return{
             ...state,
@@ -42,6 +44,24 @@ const reducer = (state, action)=>{
       }),
     };
   }
+
+    //Calcolo numero di items nel carrello
+    if (action.type === "CONTATORE") {
+      return {
+        ...state,
+        itemCounter: state.products.reduce((total, item) => {
+          return total + item.qty;
+        }, 0),
+      };
+    }
+    if (action.type === "COSTO_TOTALE") {
+      return {
+        ...state,
+        total: state.products.reduce((total, item) => {
+          return total + item.price * item.qty;
+        }, 0),
+      };
+    }
 }
 
 export default reducer;
