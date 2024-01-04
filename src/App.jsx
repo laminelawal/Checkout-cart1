@@ -64,7 +64,6 @@ export const App = () => {
           <button>Checkout</button>
           </h1>
          }
-          
         </>
       )}
     </div>
